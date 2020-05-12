@@ -1,6 +1,6 @@
 camel:
   springboot:
-    name: CamelRestSql
+    name: CamelRestServer
   component:
     servlet:
       mapping:

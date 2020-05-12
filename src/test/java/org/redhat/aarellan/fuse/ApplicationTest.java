@@ -35,7 +35,7 @@ public class ApplicationTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void newOrderTest() {
+    public void newRequestTest() {
     	
     	ResponseEntity<String> response = restTemplate.getForEntity("/camel-rest/data", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

@@ -15,6 +15,8 @@
  */
 package org.redhat.aarellan.fuse;
 
+import org.apache.camel.Exchange;
+import org.apache.camel.Expression;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.model.rest.RestBindingMode;
 import org.springframework.boot.SpringApplication;
@@ -40,12 +42,6 @@ public class Application extends SpringBootServletInitializer {
         public void configure() {
             restConfiguration()
                 .contextPath("/camel-rest").apiContextPath("/api")
-                    .apiProperty("api.title", "Camel REST API")
-                    .apiProperty("api.version", "1.0")
-                    .apiProperty("cors", "true")
-                    .apiProperty("api.specification.contentType.json", "application/vnd.oai.openapi+json;version=2.0")
-                    .apiProperty("api.specification.contentType.yaml", "application/vnd.oai.openapi;version=2.0")
-                    .apiContextRouteId("doc-api")
                 .component("servlet")
                 .bindingMode(RestBindingMode.json);
 

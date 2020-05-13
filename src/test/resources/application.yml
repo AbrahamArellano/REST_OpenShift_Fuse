@@ -1,11 +1,6 @@
 camel:
   springboot:
     name: CamelRestServer
-  component:
-    servlet:
-      mapping:
-        enabled: true
-        context-path: /camel-rest/*
 
 quickstart:
   generateOrderPeriod: 1s

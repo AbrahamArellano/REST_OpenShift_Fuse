@@ -21,39 +21,9 @@ mvn fabric8:deploy -Popenshift
 ## Undeploy OpenShift
 mvn fabric8:undeploy -Popenshift
 
+## Check logs
+On each pod the logs display the HAProxy port which represents the connection used from the HAProxy to application POD
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-undertow</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>		
-		
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-tomcat</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>		
+## Check connection on Router Node
+netstat -c | grep -E '[Application_POD_1]|[Application_POD_2]'
 
-		<dependency>
-			<groupId>org.apache.camel</groupId>
-			<artifactId>camel-servlet-starter</artifactId>
-		</dependency>		

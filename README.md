@@ -25,5 +25,7 @@ mvn fabric8:undeploy -Popenshift
 On each pod the logs display the HAProxy port which represents the connection used from the HAProxy to application POD
 
 ## Check connection on Router Node
-netstat -c | grep -E '[Application_POD_1]|[Application_POD_2]'
+watch -n 0.2 "netstat -atlnp | grep -E '172.17.0.10|172.17.0.9'"
+
+-n: refresh time in seconds
 

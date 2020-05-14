@@ -51,11 +51,11 @@ public class Application extends SpringBootXmlCamelContextConfigurer {
                 .bindingMode(RestBindingMode.json);
 
             rest("/data").description("Simple REST service")
-                .get("/").description("My Request")
+                .get("{id}").description("My Request")
                     .route().routeId("simple-api")
                     .bean(service, "generateOrder")
                     .process(serverProcessor)
-                    .log("${in.headers.CamelNettyRemoteAddress}")
+                    .log("origin: ${in.headers.CamelNettyRemoteAddress} - id: ${header.id} - localAddr: ${header.CamelNettyLocalAddress} - ${header.Connection} - cookie: ${header.Cookie}")
                     .endRest();
         }
     }

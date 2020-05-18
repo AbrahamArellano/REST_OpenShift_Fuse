@@ -55,7 +55,7 @@ public class Application extends SpringBootXmlCamelContextConfigurer {
                     .route().routeId("simple-api")
                     .bean(service, "generateOrder")
                     .process(serverProcessor)
-                    .log("origin: ${in.headers.CamelNettyRemoteAddress} - id: ${header.id} - localAddr: ${header.CamelNettyLocalAddress} - ${header.Connection} - cookie: ${header.Cookie}")
+                    .log("HAProxy address: ${in.headers.CamelNettyRemoteAddress} - id: ${header.id} - localAddr: ${header.CamelNettyLocalAddress} - ${header.Connection}")
                     .endRest();
         }
     }
